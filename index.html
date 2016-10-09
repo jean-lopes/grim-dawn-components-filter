@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grim Dawn Components Filter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-dark-grey.css">
+        <link rel="stylesheet" href="src/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <script src="src/components.js"></script>
+        <script src="src/grim-dawn-components-filter.js"></script>
+        <link rel="stylesheet" href="src/style.css">
+    </head>
+    <body class="w3-container w3-padding-0 w3-theme-dark">
+        <header class="w3-theme-light">
+            <h1 class="w3-center w3-text-theme w3-margin-0 w3-padding-16">Grim Dawn Components Filter</h1>
+        </header>
+        <div ng-app="gdcf" ng-controller="gdcfCtrl" class="w3-container w3-padding-0 w3-margin-top">
+            <div class="w3-container  w3-quarter">
+                <div class="w3-container w3-theme-dark">
+                    <h2>Filters</h2>
+                </div>
+                <form class="w3-form">
+                    <select class="w3-select w3-theme-light w3-text-theme" name="tier" ng-model="tier" ng-change="update()">
+                        <option value="" disabled selected>Tier</option>
+                        <option value="any">Any tier</option>
+                        <option value="common">Common only</option>
+                        <option value="rare">Rare only</option>
+                    </select>
+
+                <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="name" placeholder="Name" autocomplete="off" ng-model="name">
+
+                <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="used_with" placeholder="Used with" autocomplete="off" ng-model="used_with">
+
+                <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="stats" placeholder="Stats" autocomplete="off" ng-model="stats">
+
+                <button class="w3-btn-block w3-margin-top w3-theme" ng-click="reset()">Reset filters</button>
+                </form>
+            </div>
+            <div class="w3-container w3-rest">
+                <table class="w3-table-all w3-text-theme w3-centered" style="vertical-align: middle">
+                    <tr>
+                        <th>Tier</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Level</th>
+                        <th>Used with</th>
+                        <th>Stats</th>
+                    </tr>
+                    <tr ng-repeat="c in components | filterComponents:tier:name:used_with:stats">
+                        <td style="vertical-align: middle">
+                            {{c.cmp_tier}}
+                        </td>
+                        <td style="vertical-align: middle">
+                            <img src="{{c.img_src}}" alt="{{c.img_alt}}" data-image-key="{{c.img_key}}" data-image-name="{{c.img_name}}" width="32" height="32">
+                        </td>
+                        <td style="vertical-align: middle">
+                            {{c.cmp_name}}
+                        </td>
+                        <td style="vertical-align: middle">
+                            {{c.cmp_level}}
+                        </td>
+                        <td style="vertical-align: middle">
+                            <p ng-repeat="u in c.cmp_used_with">
+                                {{u}}
+                            </p>
+                        </td>
+                        <td style="vertical-align: middle">
+                            <p ng-repeat="s in c.cmp_stats">
+                                {{s}}
+                            </p>
+                            <p ng-if="c.cmp_skill">
+                                <a target="_blank" href="{{c.cmp_skill.url}}">{{c.cmp_skill.name}}</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
