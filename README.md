@@ -1,0 +1,1 @@
+# grim-dawn-components-filter
