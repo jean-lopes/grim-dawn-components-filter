@@ -17,6 +17,9 @@
         <header class="w3-theme-light">
             <h1 class="w3-center w3-text-theme w3-margin-0 w3-padding-16">Grim Dawn Components Filter</h1>
         </header>
+        <div style="position: absolute; bottom:3px; left:3px;" class="w3-card w3-padding-4 w3-theme">
+            <a target="_blank" href="https://github.com/jean-lopes/grim-dawn-components-filter">Star this project on GitHub!</a>
+        </div>        
         <div ng-app="gdcf" ng-controller="gdcfCtrl" class="w3-container w3-padding-0 w3-margin-top">
             <div class="w3-container  w3-quarter">
                 <div class="w3-container w3-theme-dark">
@@ -30,13 +33,13 @@
                         <option value="rare">Rare only</option>
                     </select>
 
-                <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="name" placeholder="Name" autocomplete="off" ng-model="name">
+                    <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="name" placeholder="Name" autocomplete="off" ng-model="name">
 
-                <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="used_with" placeholder="Used with" autocomplete="off" ng-model="used_with">
+                    <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="used_with" placeholder="Used with" autocomplete="off" ng-model="used_with">
 
-                <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="stats" placeholder="Stats" autocomplete="off" ng-model="stats">
+                    <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="stats" placeholder="Stats" autocomplete="off" ng-model="stats">
 
-                <button class="w3-btn-block w3-margin-top w3-theme" ng-click="reset()">Reset filters</button>
+                    <button class="w3-btn-block w3-margin-top w3-theme" ng-click="reset()">Reset filters</button>
                 </form>
             </div>
             <div class="w3-container w3-rest">
