@@ -38,6 +38,10 @@
                     <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="used_with" placeholder="Used with" autocomplete="off" ng-model="used_with">
 
                     <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="stats" placeholder="Stats" autocomplete="off" ng-model="stats">
+					
+                    <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="level_from" placeholder="Level from" autocomplete="off" ng-model="level_from">
+					
+                    <input class="w3-input w3-theme-light w3-text-theme w3-margin-top" type="text" name="level_to" placeholder="Level to" autocomplete="off" ng-model="level_to">
 
                     <button class="w3-btn-block w3-margin-top w3-theme" ng-click="reset()">Reset filters</button>
                 </form>
@@ -52,7 +56,7 @@
                         <th>Used with</th>
                         <th>Stats</th>
                     </tr>
-                    <tr ng-repeat="c in components | filterComponents:tier:name:used_with:stats">
+                    <tr ng-repeat="c in components | filterComponents:tier:name:used_with:stats:level_from:level_to">
                         <td style="vertical-align: middle">
                             {{c.cmp_tier}}
                         </td>
